@@ -2,6 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const gridDisplay = document.querySelector('.grid')
   const scoreDisplay = document.getElementById('score')
   const resultDisplay = document.getElementById('result')
+  const upButton = document.getElementById('move-up')
+  const leftButton = document.getElementById('move-left')
+  const rightButton = document.getElementById('move-right')
+  const downButton = document.getElementById('move-down')
   const width = 4
   let squares = []
   let score = 0
@@ -91,15 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // loop over first 4 elements
     // and check the squares below
     for (let i = 0; i < 4; i++) {
-      console.log(i)
+      // console.log(i)
       let totalOne = squares[i].innerHTML
-      console.log(totalOne, 'totalOne')
+      // console.log(totalOne, 'totalOne')
       let totalTwo = squares[i + width].innerHTML
-      console.log(totalTwo, 'totalTwo')
+      // console.log(totalTwo, 'totalTwo')
       let totalThree = squares[i + width * 2].innerHTML
-      console.log(totalThree, 'totalThree')
+      // console.log(totalThree, 'totalThree')
       let totalFour = squares[i + width * 3].innerHTML
-      console.log(totalFour, 'totalFour')
+      // console.log(totalFour, 'totalFour')
       let column = [
         parseInt(totalOne),
         parseInt(totalTwo),
@@ -200,6 +204,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   document.addEventListener('keyup', control)
+  upButton.addEventListener('click', keyUp)
+  leftButton.addEventListener('click', keyLeft)
+  rightButton.addEventListener('click', keyRight)
+  downButton.addEventListener('click', keyDown)
 
   function keyRight() {
     moveRight()
