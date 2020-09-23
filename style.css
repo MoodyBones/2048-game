@@ -1,11 +1,6 @@
-:root {
-  --radial-gradient: radial-gradient(
-    circle at top right,
-    rgb(87, 87, 87),
-    rgb(53, 53, 53),
-    rgb(87, 87, 87),
-    rgb(53, 53, 53)
-  );
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
 
 body {
@@ -16,48 +11,76 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.container {
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+}
 header {
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
+  padding: 0 0.5rem;
 }
 h1 {
+  align-self: flex-end;
   text-transform: uppercase;
   font-size: 1rem;
   margin: 0;
   width: min-content;
+  line-height: 1.5;
+  /*   font-weight: normal; */
 }
 h1 span {
   font-size: 3rem;
+  letter-spacing: 1px;
+}
+
+@keyframes bounce-heading {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .grid {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: repeat(4, 100px);
-  grid-gap: 1rem;
-  padding: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 0.5rem;
+  padding: 0.5rem;
   border-radius: 0.2rem;
-  width: max-content;
   background: white;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-/* selects alld divs inside of .grid */
+/* selects all divs inside of .grid */
 .grid div {
   display: grid;
   align-items: center;
   justify-content: center;
-  width: 100px;
-  height: 100px;
+  min-width: 70px;
+  /*   maxWidth: 120px; */
+  min-height: 70px;
+  /*   max-height: 120px; */
   background: #f6e58d;
-  font-size: 3rem;
+  letter-spacing: 2px;
+  font-size: 1.5rem;
   font-weight: bold;
   border-radius: 0.05rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
+.score-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 .score-container {
   background: rgb(53, 53, 53);
   background-image: radial-gradient(
@@ -72,8 +95,7 @@ h1 span {
   height: max-content;
   padding: 0.5em 0.4em 0.2em;
   border-radius: 0.3rem;
-  margin-bottom: 2rem;
-  margin-left: auto;
+  margin-bottom: 0.5rem;
   font-size: 1rem;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -92,20 +114,39 @@ h1 span {
   }
 }
 
+.score-title {
+  margin-bottom: 0.5em;
+}
 #score {
   font-size: 2rem;
   font-weight: bold;
 }
 
 footer {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding-top: 4rem;
+  padding: 4rem 0.75rem 2rem;
+  font-size: 0.9rem;
   line-height: 1.5;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 a {
   color: inherit;
   text-decoration: none;
   font-weight: bold;
+}
+
+@media (min-width: 360px) {
+  .grid {
+    grid-gap: 0.7rem;
+    padding: 0.7rem;
+  }
+  .grid div {
+    font-size: 1.8rem;
+  }
+  .container {
+    min-width: 360px;
+    width: 100%;
+  }
 }
