@@ -230,7 +230,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function checkForWin() {
     for (let i = 0; i < squares.length; i++) {
       if (squares[i].innerHTML == 2048) {
-        resultDisplay.innerHTML = 'You Win!'
+        // resultDisplay.innerHTML = 'You Win!'
+        resultDisplay.innerHTML =
+          '<svg width="40" height="40" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
         document.removeEventListener('keyup', control)
       }
     }
@@ -244,7 +246,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     if (zeros === 0) {
-      resultDisplay.innerHTML = 'You Lose!'
+      // resultDisplay.innerHTML = 'You Lose!'
+      resultDisplay.innerHTML =
+        '<svg width="40" height="40" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
       document.removeEventListener('keyup', control)
       setTimeout(() => clear(), 3000)
     }
@@ -273,15 +277,15 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (squares[i].innerHTML == 64)
         squares[i].style.backgroundColor = '#ED4C67'
       else if (squares[i].innerHTML == 128)
-        squares[i].style.backgroundColor = '#A3CB38'
+        squares[i].style.backgroundColor = '#58B19F'
       else if (squares[i].innerHTML == 256)
-        squares[i].style.backgroundColor = '#F79F1F'
+        squares[i].style.backgroundColor = '#25CCF7'
       else if (squares[i].innerHTML == 512)
-        squares[i].style.backgroundColor = '#EE5A24'
+        squares[i].style.backgroundColor = '#D6A2E8'
       else if (squares[i].innerHTML == 1024)
-        squares[i].style.backgroundColor = '#ED4C67'
+        squares[i].style.backgroundColor = '#9AECDB'
       else if (squares[i].innerHTML == 2048)
-        squares[i].style.backgroundColor = '#EA2027'
+        squares[i].style.backgroundColor = '#EAB543'
     }
   }
   addColours()
